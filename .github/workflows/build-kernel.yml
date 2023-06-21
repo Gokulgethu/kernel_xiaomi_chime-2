@@ -1,21 +1,27 @@
-name: Build Kernel
+name: Build-Kernel
+
 on:
   push:
-    branches: lineage-20
-  pull_request:
-    branches: lineage-20
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Kernel Build Environment
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y build-essential kernel-package libncurses5-dev libssl-dev
-      - name: Build Kernel
-        run: |
-          make menuconfig
-          make -j$(nproc)
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y git build-essential libncurses-dev bison flex libssl-dev libelf-dev
+
+    - name: Build Kernel
+      run: |
+        cd linux
+        export ARCH=x86_64
+        export CROSS_COMPILE=x86_64-linux-gnu-
+        make defconfig
+        make -j$(nproc)
