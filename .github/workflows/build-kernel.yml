@@ -33,10 +33,10 @@ patchelf apktool dos2unix git-its default-jak libxml-simple-perl ripgrep clang-1
     - name: Download Neutron Toolchain
       run: bash hani-ci.sh--tools
 
-    - name: build gokulgethu-lillium
+    - name: build hanikernel-beehive
       run: bash hani-ci.sh-build
     - name: Upload kernel
       uses: actions/upload-artifact@tv3
       with:
-         name: gokulgethu-lillium
-         path: 4.19-gokulgethu.*-lillium-chime*.zip
+         name: hanikernel-beehive 
+         path: 4.19-hanikrnl.*-beehive-chime*.zip
