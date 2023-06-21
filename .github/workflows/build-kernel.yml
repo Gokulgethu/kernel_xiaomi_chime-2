@@ -22,7 +22,7 @@ jobs:
 
     - name: Update Environment 
       run: |
-      sudo apt install -y git-core gnupg flex be bison build-essential zip \
+      sudo apt install -y git-core gnupg flex bc bison build-essential zip \
       curl 211big-dev gcc-multilib gt-multilib libc6-dev-1386 11b32ncurses5-dev. V \
       x11proto-core-dev libx11-dev jq 11b3221-dev libxml2-utils V \
       xsitproc unzip fontconfig imagemagick python2 python3 python3-pip python3-dev \
